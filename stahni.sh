@@ -61,7 +61,6 @@ nazev["BC_SU-KRKA"]="Krč_(Sulická)"
 
 mista="${!typ[@]}"
 
-mkdir data grafy grafy-png csv
 for i in $mista; do
     wget "https://unicam.camea.cz/Discoverer/StatsReports/bike-counter/stats-customer-hour-content/df/${typ[$i]}%2000:00:00/dt/`date +%Y-%m-%d`%2000:00:00/sn/$i/format/csv" -O "data/${nazev[$i]}.csv"
 done
