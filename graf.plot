@@ -1,22 +1,30 @@
 #!/bin/bash
 soubor=`echo "$1" | sed "s/\.csv//" | sed "s/data\///"`
 nazev=`echo "$soubor" | sed "s/_/ /g"`
+plot_string="in 0 u 1:2 t 'směr 1'  with steps linestyle 1 linetype rgb 'red' lw 1,\
+   '' in 0 u 1:3 t 'směr 2'  with steps linestyle 1 linetype rgb 'green' lw 1,\
+   '' in 0 u 1:4 t 'součet' with steps linestyle 1 linetype rgb 'blue' lw 1"
+temp_string="in 0 u 1:5 axes x1y2 with steps t 'teplota' linestyle 1 linetype rgb '#66FFFF' lw 1, ''"
+
 if [ "$2" == PNG ]; then
    output_folter="grafy-png"
    output_suffix="png"
    html="#"
    svg="#"
    temp="#"
+   plot=$plot_string
 else if [ "$2" == SVG ]; then
    output_folter="grafy-svg"
    output_suffix="svg"
    png="#"
    html="#"
+   plot=$temp_string$plot_string
 else
    output_folter="grafy"
    output_suffix="html"
    png="#"
    svg="#"
+   plot=$temp_string$plot_string
 fi
 fi
 
@@ -47,45 +55,30 @@ set timefmt "%Y-%m-%d %H:%M"
 #set xrange ["2010-11-03 01:00":"2010-11-16 13:00"]
 
 set output "$output_folter/$soubor-hodiny.$output_suffix"
-plot "data/$soubor.csv" \
-in 0 u 1:2 t "směr 1"  with steps linestyle 1 linetype rgb "red" lw 1,\
-'' in 0 u 1:3 t "směr 2"  with steps linestyle 1 linetype rgb "green" lw 1,\
-'' in 0 u 1:4 t "součet" with steps linestyle 1 linetype rgb "blue" lw 1${temp},\
-${temp}'' in 0 u 1:5 axes x1y2 with steps t "teplota"
+plot "<gawk -v regexp='' -f prevod.awk \"data/$soubor.csv\"" \
+${plot}
 
 set title "Počet cyklistů na měřeném profilu ${nazev} - součty po týdnu"
 
 set output "$output_folter/$soubor-tydny.$output_suffix"
 plot "<gawk -v regexp='Ne .* 00:00:00' -f prevod.awk \"data/$soubor.csv\"" \
-in 0 u 1:2 with steps t "směr 1",\
-'' in 0 u 1:3 with steps t "směr 2",\
-'' in 0 u 1:4 with steps t "součet"${temp},\
-${temp}'' in 0 u 1:5 axes x1y2 with steps t "průměrná teplota"
+${plot}
 
 set title "Počet cyklistů na měřeném profilu ${nazev} - součty po dni"
 
 set output "$output_folter/$soubor-dny.$output_suffix"
 plot "<gawk -v regexp='00:00:00' -f prevod.awk \"data/$soubor.csv\"" \
-in 0 u 1:2 with steps t "směr 1",\
-'' in 0 u 1:3 with steps t "směr 2",\
-'' in 0 u 1:4 with steps t "součet"${temp},\
-${temp}'' in 0 u 1:5 axes x1y2 with steps t "průměrná teplota"
+${plot}
 
 set title "Počet cyklistů na měřeném profilu ${nazev} - součty po měsíci"
 
 set output "$output_folter/$soubor-mesice.$output_suffix"
 plot "<gawk -v regexp=' 01 00:00:00' -f prevod.awk \"data/$soubor.csv\"" \
-in 0 u 1:2 with steps t "směr 1",\
-'' in 0 u 1:3 with steps t "směr 2",\
-'' in 0 u 1:4 with steps t "součet"${temp},\
-${temp}'' in 0 u 1:5 axes x1y2 with steps t "průměrná teplota"
+${plot}
 
 set title "Počet cyklistů na měřeném profilu ${nazev} - součty po roce"
 
 set output "$output_folter/$soubor-roky.$output_suffix"
 plot "<gawk -v regexp='led 01 00:00:00' -f prevod.awk \"data/$soubor.csv\"" \
-in 0 u 1:2 with steps t "směr 1",\
-'' in 0 u 1:3 with steps t "směr 2",\
-'' in 0 u 1:4 with steps t "součet"${temp},\
-${temp}'' in 0 u 1:5 axes x1y2 with steps t "průměrná teplota"
+${plot}
 EOF
