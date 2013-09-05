@@ -36,7 +36,7 @@ gnuplot <<EOF
 reset
 #set terminal postscript enhanced color
 ${png}set terminal pngcairo enhanced truecolor size 1024,768
-${html}set terminal canvas size 1024,768 jsdir "js" enhanced standalone mousing
+${html}set terminal canvas size 1024,768 jsdir "http://gnuplot.sourceforge.net/demo_canvas_4.6/" enhanced standalone mousing
 ${svg}set term svg mouse enhanced size 1024,768 dynamic jsdir "http://gnuplot.sourceforge.net/demo_svg_4.6/"
 set datafile commentschars "#"
 set locale "cs_CZ.UTF-8"
