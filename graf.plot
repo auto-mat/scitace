@@ -1,4 +1,8 @@
 #!/bin/bash
+export LANG="en_US.UTF-8"
+export LC_COLLATE=C
+export LC_ALL=C
+
 soubor=`echo "$1" | sed "s/\.csv//" | sed "s/data\///"`
 nazev=`echo "$soubor" | sed "s/_/ /g"`
 plot_string="in 0 u 1:2 t 'směr 1'  with steps linestyle 1 linetype rgb 'red' lw 1,\
@@ -61,7 +65,7 @@ ${plot}
 set title "Počet cyklistů na měřeném profilu ${nazev} - součty po týdnu"
 
 set output "$output_folter/$soubor-tydny.$output_suffix"
-plot "<gawk -v regexp='Ne .* 00:00:00' -f prevod.awk \"data/$soubor.csv\"" \
+plot "<gawk -v regexp='Sun .* 00:00:00' -f prevod.awk \"data/$soubor.csv\"" \
 ${plot}
 
 set title "Počet cyklistů na měřeném profilu ${nazev} - součty po dni"
@@ -79,6 +83,6 @@ ${plot}
 set title "Počet cyklistů na měřeném profilu ${nazev} - součty po roce"
 
 set output "$output_folter/$soubor-roky.$output_suffix"
-plot "<gawk -v regexp='led 01 00:00:00' -f prevod.awk \"data/$soubor.csv\"" \
+plot "<gawk -v regexp='Jan 01 00:00:00' -f prevod.awk \"data/$soubor.csv\"" \
 ${plot}
 EOF
