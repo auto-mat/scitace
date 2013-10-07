@@ -3,6 +3,13 @@
 <head>
 <meta charset="utf-8"/>
 <title>Grafy sčítání cyklistů v Praze</title>
+<script type="text/javascript" src="js/jquery-2.0.3.min.js"></script>
+<script type="text/javascript" src="js/purl.js"></script>
+<script>
+   $(document).ready(function() {
+       $('#graph_frame').attr('src',$.url().param('graph_url'));
+   })
+</script>
 </head>
 <body>
    <div style="float:left; width: 300px;">
@@ -248,7 +255,7 @@
       </ul>
    </div>
    <div style="left: 300px; top: 0px; right: 5px; bottom: 10px; position: absolute;">
-      <iframe src="grafy-svg/Barandovský_most-dny.svg" name="main_page" style="width:100%; height:100%;">
+      <iframe id="graph_frame" src="grafy-svg/Barandovský_most-dny.svg" name="main_page" style="width:100%; height:100%;">
       </iframe>
    </div>
 </body>
