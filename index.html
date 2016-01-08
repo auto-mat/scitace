@@ -6,8 +6,13 @@
 <script type="text/javascript" src="js/jquery-2.0.3.min.js"></script>
 <script type="text/javascript" src="js/purl.js"></script>
 <script>
+   $(window).bind( 'hashchange', function(e) {
+      if(window.location.hash)
+        $('#graph_frame').attr('src',window.location.hash.substring(1));
+   });
    $(document).ready(function() {
-       $('#graph_frame').attr('src',$.url().param('graph_url'));
+      if(window.location.hash)
+        $('#graph_frame').attr('src',window.location.hash.substring(1));
    })
 </script>
 </head>
@@ -16,227 +21,243 @@
       <table>
          <tr>
             <td>Barandovský most:</td>
-            <td><a href="grafy-svg/Barandovský_most-hodiny.svg" target="main_page">h</a></td>
-            <td><a href="grafy-svg/Barandovský_most-dny.svg" target="main_page">d</a></td>
-            <td><a href="grafy-svg/Barandovský_most-tydny.svg" target="main_page">t</a></td>
-            <td><a href="grafy-svg/Barandovský_most-mesice.svg" target="main_page">m</a></td>
-            <td><a href="grafy-svg/Barandovský_most-roky.svg" target="main_page">r</a></td>
+            <td><a href="#grafy-svg/Barandovský_most-hodiny.svg" >h</a></td>
+            <td><a href="#grafy-svg/Barandovský_most-dny.svg" >d</a></td>
+            <td><a href="#grafy-svg/Barandovský_most-tydny.svg" >t</a></td>
+            <td><a href="#grafy-svg/Barandovský_most-mesice.svg" >m</a></td>
+            <td><a href="#grafy-svg/Barandovský_most-roky.svg" >r</a></td>
          </tr>
          <tr>
             <td>Celetná:</td>
-            <td><a href="grafy-svg/Celetná-hodiny.svg" target="main_page">h</a></td>
-            <td><a href="grafy-svg/Celetná-dny.svg" target="main_page">d</a></td>
-            <td><a href="grafy-svg/Celetná-tydny.svg" target="main_page">t</a></td>
-            <td><a href="grafy-svg/Celetná-mesice.svg" target="main_page">m</a></td>
-            <td><a href="grafy-svg/Celetná-roky.svg" target="main_page">r</a></td>
+            <td><a href="#grafy-svg/Celetná-hodiny.svg">h</a></td>
+            <td><a href="#grafy-svg/Celetná-dny.svg">d</a></td>
+            <td><a href="#grafy-svg/Celetná-tydny.svg">t</a></td>
+            <td><a href="#grafy-svg/Celetná-mesice.svg">m</a></td>
+            <td><a href="#grafy-svg/Celetná-roky.svg">r</a></td>
          </tr>
          <tr>
             <td>Císařský ostrov:</td>
-            <td><a href="grafy-svg/Císařský_ostrov-hodiny.svg" target="main_page">h</a></td>
-            <td><a href="grafy-svg/Císařský_ostrov-dny.svg" target="main_page">d</a></td>
-            <td><a href="grafy-svg/Císařský_ostrov-tydny.svg" target="main_page">t</a></td>
-            <td><a href="grafy-svg/Císařský_ostrov-mesice.svg" target="main_page">m</a></td>
-            <td><a href="grafy-svg/Císařský_ostrov-roky.svg" target="main_page">r</a></td>
+            <td><a href="#grafy-svg/Císařský_ostrov-hodiny.svg">h</a></td>
+            <td><a href="#grafy-svg/Císařský_ostrov-dny.svg">d</a></td>
+            <td><a href="#grafy-svg/Císařský_ostrov-tydny.svg">t</a></td>
+            <td><a href="#grafy-svg/Císařský_ostrov-mesice.svg">m</a></td>
+            <td><a href="#grafy-svg/Císařský_ostrov-roky.svg">r</a></td>
          </tr>
          <tr>
             <td>Divoká šárka:</td>
-            <td><a href="grafy-svg/Divoká_šárka-hodiny.svg" target="main_page">h</a></td>
-            <td><a href="grafy-svg/Divoká_šárka-dny.svg" target="main_page">d</a></td>
-            <td><a href="grafy-svg/Divoká_šárka-tydny.svg" target="main_page">t</a></td>
-            <td><a href="grafy-svg/Divoká_šárka-mesice.svg" target="main_page">m</a></td>
-            <td><a href="grafy-svg/Divoká_šárka-roky.svg" target="main_page">r</a></td>
+            <td><a href="#grafy-svg/Divoká_šárka-hodiny.svg">h</a></td>
+            <td><a href="#grafy-svg/Divoká_šárka-dny.svg">d</a></td>
+            <td><a href="#grafy-svg/Divoká_šárka-tydny.svg">t</a></td>
+            <td><a href="#grafy-svg/Divoká_šárka-mesice.svg">m</a></td>
+            <td><a href="#grafy-svg/Divoká_šárka-roky.svg">r</a></td>
          </tr>
          <tr>
             <td>Dubeč:</td>
-            <td><a href="grafy-svg/Dubeč-hodiny.svg" target="main_page">h</a></td>
-            <td><a href="grafy-svg/Dubeč-dny.svg" target="main_page">d</a></td>
-            <td><a href="grafy-svg/Dubeč-tydny.svg" target="main_page">t</a></td>
-            <td><a href="grafy-svg/Dubeč-mesice.svg" target="main_page">m</a></td>
-            <td><a href="grafy-svg/Dubeč-roky.svg" target="main_page">r</a></td>
+            <td><a href="#grafy-svg/Dubeč-hodiny.svg">h</a></td>
+            <td><a href="#grafy-svg/Dubeč-dny.svg">d</a></td>
+            <td><a href="#grafy-svg/Dubeč-tydny.svg">t</a></td>
+            <td><a href="#grafy-svg/Dubeč-mesice.svg">m</a></td>
+            <td><a href="#grafy-svg/Dubeč-roky.svg">r</a></td>
          </tr>
          <tr>
             <td>Dukelských hrdinů:</td>
-            <td><a href="grafy-svg/Dukelských_hrdinů-hodiny.svg" target="main_page">h</a></td>
-            <td><a href="grafy-svg/Dukelských_hrdinů-dny.svg" target="main_page">d</a></td>
-            <td><a href="grafy-svg/Dukelských_hrdinů-tydny.svg" target="main_page">t</a></td>
-            <td><a href="grafy-svg/Dukelských_hrdinů-mesice.svg" target="main_page">m</a></td>
-            <td><a href="grafy-svg/Dukelských_hrdinů-roky.svg" target="main_page">r</a></td>
+            <td><a href="#grafy-svg/Dukelských_hrdinů-hodiny.svg">h</a></td>
+            <td><a href="#grafy-svg/Dukelských_hrdinů-dny.svg">d</a></td>
+            <td><a href="#grafy-svg/Dukelských_hrdinů-tydny.svg">t</a></td>
+            <td><a href="#grafy-svg/Dukelských_hrdinů-mesice.svg">m</a></td>
+            <td><a href="#grafy-svg/Dukelských_hrdinů-roky.svg">r</a></td>
          </tr>
          <tr>
             <td>Hlubočepská:</td>
-            <td><a href="grafy-svg/Hlubočepská-hodiny.svg" target="main_page">h</a></td>
-            <td><a href="grafy-svg/Hlubočepská-dny.svg" target="main_page">d</a></td>
-            <td><a href="grafy-svg/Hlubočepská-tydny.svg" target="main_page">t</a></td>
-            <td><a href="grafy-svg/Hlubočepská-mesice.svg" target="main_page">m</a></td>
-            <td><a href="grafy-svg/Hlubočepská-roky.svg" target="main_page">r</a></td>
+            <td><a href="#grafy-svg/Hlubočepská-hodiny.svg">h</a></td>
+            <td><a href="#grafy-svg/Hlubočepská-dny.svg">d</a></td>
+            <td><a href="#grafy-svg/Hlubočepská-tydny.svg">t</a></td>
+            <td><a href="#grafy-svg/Hlubočepská-mesice.svg">m</a></td>
+            <td><a href="#grafy-svg/Hlubočepská-roky.svg">r</a></td>
          </tr>
          <tr>
             <td>Chodov:</td>
-            <td><a href="grafy-svg/Chodov-hodiny.svg" target="main_page">h</a></td>
-            <td><a href="grafy-svg/Chodov-dny.svg" target="main_page">d</a></td>
-            <td><a href="grafy-svg/Chodov-tydny.svg" target="main_page">t</a></td>
-            <td><a href="grafy-svg/Chodov-mesice.svg" target="main_page">m</a></td>
-            <td><a href="grafy-svg/Chodov-roky.svg" target="main_page">r</a></td>
+            <td><a href="#grafy-svg/Chodov-hodiny.svg">h</a></td>
+            <td><a href="#grafy-svg/Chodov-dny.svg">d</a></td>
+            <td><a href="#grafy-svg/Chodov-tydny.svg">t</a></td>
+            <td><a href="#grafy-svg/Chodov-mesice.svg">m</a></td>
+            <td><a href="#grafy-svg/Chodov-roky.svg">r</a></td>
          </tr>
          <tr>
             <td>Kolčavka:</td>
-            <td><a href="grafy-svg/Kolčavka-hodiny.svg" target="main_page">h</a></td>
-            <td><a href="grafy-svg/Kolčavka-dny.svg" target="main_page">d</a></td>
-            <td><a href="grafy-svg/Kolčavka-tydny.svg" target="main_page">t</a></td>
-            <td><a href="grafy-svg/Kolčavka-mesice.svg" target="main_page">m</a></td>
-            <td><a href="grafy-svg/Kolčavka-roky.svg" target="main_page">r</a></td>
+            <td><a href="#grafy-svg/Kolčavka-hodiny.svg">h</a></td>
+            <td><a href="#grafy-svg/Kolčavka-dny.svg">d</a></td>
+            <td><a href="#grafy-svg/Kolčavka-tydny.svg">t</a></td>
+            <td><a href="#grafy-svg/Kolčavka-mesice.svg">m</a></td>
+            <td><a href="#grafy-svg/Kolčavka-roky.svg">r</a></td>
          </tr>
          <tr>
             <td>Košíře:</td>
-            <td><a href="grafy-svg/Košíře-hodiny.svg" target="main_page">h</a></td>
-            <td><a href="grafy-svg/Košíře-dny.svg" target="main_page">d</a></td>
-            <td><a href="grafy-svg/Košíře-tydny.svg" target="main_page">t</a></td>
-            <td><a href="grafy-svg/Košíře-mesice.svg" target="main_page">m</a></td>
-            <td><a href="grafy-svg/Košíře-roky.svg" target="main_page">r</a></td>
+            <td><a href="#grafy-svg/Košíře-hodiny.svg">h</a></td>
+            <td><a href="#grafy-svg/Košíře-dny.svg">d</a></td>
+            <td><a href="#grafy-svg/Košíře-tydny.svg">t</a></td>
+            <td><a href="#grafy-svg/Košíře-mesice.svg">m</a></td>
+            <td><a href="#grafy-svg/Košíře-roky.svg">r</a></td>
          </tr>
          <tr>
             <td>Krč (Sulická):</td>
-            <td><a href="grafy-svg/Krč_(Sulická)-hodiny.svg" target="main_page">h</a></td>
-            <td><a href="grafy-svg/Krč_(Sulická)-dny.svg" target="main_page">d</a></td>
-            <td><a href="grafy-svg/Krč_(Sulická)-tydny.svg" target="main_page">t</a></td>
-            <td><a href="grafy-svg/Krč_(Sulická)-mesice.svg" target="main_page">m</a></td>
-            <td><a href="grafy-svg/Krč_(Sulická)-roky.svg" target="main_page">r</a></td>
+            <td><a href="#grafy-svg/Krč_(Sulická)-hodiny.svg">h</a></td>
+            <td><a href="#grafy-svg/Krč_(Sulická)-dny.svg">d</a></td>
+            <td><a href="#grafy-svg/Krč_(Sulická)-tydny.svg">t</a></td>
+            <td><a href="#grafy-svg/Krč_(Sulická)-mesice.svg">m</a></td>
+            <td><a href="#grafy-svg/Krč_(Sulická)-roky.svg">r</a></td>
          </tr>
          <tr>
             <td>Lahovičky (Strakonická):</td>
-            <td><a href="grafy-svg/Lahovičky_(Strakonická)-hodiny.svg" target="main_page">h</a></td>
-            <td><a href="grafy-svg/Lahovičky_(Strakonická)-dny.svg" target="main_page">d</a></td>
-            <td><a href="grafy-svg/Lahovičky_(Strakonická)-tydny.svg" target="main_page">t</a></td>
-            <td><a href="grafy-svg/Lahovičky_(Strakonická)-mesice.svg" target="main_page">m</a></td>
-            <td><a href="grafy-svg/Lahovičky_(Strakonická)-roky.svg" target="main_page">r</a></td>
+            <td><a href="#grafy-svg/Lahovičky_(Strakonická)-hodiny.svg">h</a></td>
+            <td><a href="#grafy-svg/Lahovičky_(Strakonická)-dny.svg">d</a></td>
+            <td><a href="#grafy-svg/Lahovičky_(Strakonická)-tydny.svg">t</a></td>
+            <td><a href="#grafy-svg/Lahovičky_(Strakonická)-mesice.svg">m</a></td>
+            <td><a href="#grafy-svg/Lahovičky_(Strakonická)-roky.svg">r</a></td>
          </tr>
          <tr>
             <td>Letňany:</td>
-            <td><a href="grafy-svg/Letňany-hodiny.svg" target="main_page">h</a></td>
-            <td><a href="grafy-svg/Letňany-dny.svg" target="main_page">d</a></td>
-            <td><a href="grafy-svg/Letňany-tydny.svg" target="main_page">t</a></td>
-            <td><a href="grafy-svg/Letňany-mesice.svg" target="main_page">m</a></td>
-            <td><a href="grafy-svg/Letňany-roky.svg" target="main_page">r</a></td>
+            <td><a href="#grafy-svg/Letňany-hodiny.svg">h</a></td>
+            <td><a href="#grafy-svg/Letňany-dny.svg">d</a></td>
+            <td><a href="#grafy-svg/Letňany-tydny.svg">t</a></td>
+            <td><a href="#grafy-svg/Letňany-mesice.svg">m</a></td>
+            <td><a href="#grafy-svg/Letňany-roky.svg">r</a></td>
          </tr>
          <tr>
             <td>Modřany-Komořany:</td>
-            <td><a href="grafy-svg/Modřany-Komořany-hodiny.svg" target="main_page">h</a></td>
-            <td><a href="grafy-svg/Modřany-Komořany-dny.svg" target="main_page">d</a></td>
-            <td><a href="grafy-svg/Modřany-Komořany-tydny.svg" target="main_page">t</a></td>
-            <td><a href="grafy-svg/Modřany-Komořany-mesice.svg" target="main_page">m</a></td>
-            <td><a href="grafy-svg/Modřany-Komořany-roky.svg" target="main_page">r</a></td>
+            <td><a href="#grafy-svg/Modřany-Komořany-hodiny.svg">h</a></td>
+            <td><a href="#grafy-svg/Modřany-Komořany-dny.svg">d</a></td>
+            <td><a href="#grafy-svg/Modřany-Komořany-tydny.svg">t</a></td>
+            <td><a href="#grafy-svg/Modřany-Komořany-mesice.svg">m</a></td>
+            <td><a href="#grafy-svg/Modřany-Komořany-roky.svg">r</a></td>
          </tr>
          <tr>
             <td>Nábřeží kapitána jaroše:</td>
-            <td><a href="grafy-svg/Nábřeží_kapitána_jaroše-hodiny.svg" target="main_page">h</a></td>
-            <td><a href="grafy-svg/Nábřeží_kapitána_jaroše-dny.svg" target="main_page">d</a></td>
-            <td><a href="grafy-svg/Nábřeží_kapitána_jaroše-tydny.svg" target="main_page">t</a></td>
-            <td><a href="grafy-svg/Nábřeží_kapitána_jaroše-mesice.svg" target="main_page">m</a></td>
-            <td><a href="grafy-svg/Nábřeží_kapitána_jaroše-roky.svg" target="main_page">r</a></td>
+            <td><a href="#grafy-svg/Nábřeží_kapitána_jaroše-hodiny.svg">h</a></td>
+            <td><a href="#grafy-svg/Nábřeží_kapitána_jaroše-dny.svg">d</a></td>
+            <td><a href="#grafy-svg/Nábřeží_kapitána_jaroše-tydny.svg">t</a></td>
+            <td><a href="#grafy-svg/Nábřeží_kapitána_jaroše-mesice.svg">m</a></td>
+            <td><a href="#grafy-svg/Nábřeží_kapitána_jaroše-roky.svg">r</a></td>
          </tr>
          <tr>
             <td>Nuselský most:</td>
-            <td><a href="grafy-svg/Nuselský_most-hodiny.svg" target="main_page">h</a></td>
-            <td><a href="grafy-svg/Nuselský_most-dny.svg" target="main_page">d</a></td>
-            <td><a href="grafy-svg/Nuselský_most-tydny.svg" target="main_page">t</a></td>
-            <td><a href="grafy-svg/Nuselský_most-mesice.svg" target="main_page">m</a></td>
-            <td><a href="grafy-svg/Nuselský_most-roky.svg" target="main_page">r</a></td>
+            <td><a href="#grafy-svg/Nuselský_most-hodiny.svg">h</a></td>
+            <td><a href="#grafy-svg/Nuselský_most-dny.svg">d</a></td>
+            <td><a href="#grafy-svg/Nuselský_most-tydny.svg">t</a></td>
+            <td><a href="#grafy-svg/Nuselský_most-mesice.svg">m</a></td>
+            <td><a href="#grafy-svg/Nuselský_most-roky.svg">r</a></td>
          </tr>
          <tr>
             <td>Podbabská:</td>
-            <td><a href="grafy-svg/Podbabská-hodiny.svg" target="main_page">h</a></td>
-            <td><a href="grafy-svg/Podbabská-dny.svg" target="main_page">d</a></td>
-            <td><a href="grafy-svg/Podbabská-tydny.svg" target="main_page">t</a></td>
-            <td><a href="grafy-svg/Podbabská-mesice.svg" target="main_page">m</a></td>
-            <td><a href="grafy-svg/Podbabská-roky.svg" target="main_page">r</a></td>
+            <td><a href="#grafy-svg/Podbabská-hodiny.svg">h</a></td>
+            <td><a href="#grafy-svg/Podbabská-dny.svg">d</a></td>
+            <td><a href="#grafy-svg/Podbabská-tydny.svg">t</a></td>
+            <td><a href="#grafy-svg/Podbabská-mesice.svg">m</a></td>
+            <td><a href="#grafy-svg/Podbabská-roky.svg">r</a></td>
          </tr>
          <tr>
-            <td>Podolí:</td>
-            <td><a href="grafy-svg/Podolí-hodiny.svg" target="main_page">h</a></td>
-            <td><a href="grafy-svg/Podolí-dny.svg" target="main_page">d</a></td>
-            <td><a href="grafy-svg/Podolí-tydny.svg" target="main_page">t</a></td>
-            <td><a href="grafy-svg/Podolí-mesice.svg" target="main_page">m</a></td>
-            <td><a href="grafy-svg/Podolí-roky.svg" target="main_page">r</a></td>
+            <td><a href="http://mapa.prahounakole.cz/misto/2504/">Podolí (Jeremenkova)</a>:</td>
+            <td><a href="#grafy-svg/Podolí-hodiny.svg">h</a></td>
+            <td><a href="#grafy-svg/Podolí-dny.svg">d</a></td>
+            <td><a href="#grafy-svg/Podolí-tydny.svg">t</a></td>
+            <td><a href="#grafy-svg/Podolí-mesice.svg">m</a></td>
+            <td><a href="#grafy-svg/Podolí-roky.svg">r</a></td>
          </tr>
          <tr>
-            <td>Podolské nábřeží:</td>
-            <td><a href="grafy-svg/Podolské_nábřeží-hodiny.svg" target="main_page">h</a></td>
-            <td><a href="grafy-svg/Podolské_nábřeží-dny.svg" target="main_page">d</a></td>
-            <td><a href="grafy-svg/Podolské_nábřeží-tydny.svg" target="main_page">t</a></td>
-            <td><a href="grafy-svg/Podolské_nábřeží-mesice.svg" target="main_page">m</a></td>
-            <td><a href="grafy-svg/Podolské_nábřeží-roky.svg" target="main_page">r</a></td>
+            <td>Podolské nábřeží (stezka):</td>
+            <td><a href="#grafy-svg/Podolské_nábřeží-hodiny.svg">h</a></td>
+            <td><a href="#grafy-svg/Podolské_nábřeží-dny.svg">d</a></td>
+            <td><a href="#grafy-svg/Podolské_nábřeží-tydny.svg">t</a></td>
+            <td><a href="#grafy-svg/Podolské_nábřeží-mesice.svg">m</a></td>
+            <td><a href="#grafy-svg/Podolské_nábřeží-roky.svg">r</a></td>
+         </tr>
+         <tr>
+            <td>Podolské nábřeží (vozovka):</td>
+            <td><a href="#grafy-svg/Podolské_nábřeží_-_vozovka-hodiny.svg">h</a></td>
+            <td><a href="#grafy-svg/Podolské_nábřeží_-_vozovka-dny.svg">d</a></td>
+            <td><a href="#grafy-svg/Podolské_nábřeží_-_vozovka-tydny.svg">t</a></td>
+            <td><a href="#grafy-svg/Podolské_nábřeží_-_vozovka-mesice.svg">m</a></td>
+            <td><a href="#grafy-svg/Podolské_nábřeží_-_vozovka-roky.svg">r</a></td>
          </tr>
          <tr>
             <td>Povltavská:</td>
-            <td><a href="grafy-svg/Povltavská-hodiny.svg" target="main_page">h</a></td>
-            <td><a href="grafy-svg/Povltavská-dny.svg" target="main_page">d</a></td>
-            <td><a href="grafy-svg/Povltavská-tydny.svg" target="main_page">t</a></td>
-            <td><a href="grafy-svg/Povltavská-mesice.svg" target="main_page">m</a></td>
-            <td><a href="grafy-svg/Povltavská-roky.svg" target="main_page">r</a></td>
+            <td><a href="#grafy-svg/Povltavská-hodiny.svg">h</a></td>
+            <td><a href="#grafy-svg/Povltavská-dny.svg">d</a></td>
+            <td><a href="#grafy-svg/Povltavská-tydny.svg">t</a></td>
+            <td><a href="#grafy-svg/Povltavská-mesice.svg">m</a></td>
+            <td><a href="#grafy-svg/Povltavská-roky.svg">r</a></td>
          </tr>
          <tr>
             <td>Radotín:</td>
-            <td><a href="grafy-svg/Radotín-hodiny.svg" target="main_page">h</a></td>
-            <td><a href="grafy-svg/Radotín-dny.svg" target="main_page">d</a></td>
-            <td><a href="grafy-svg/Radotín-tydny.svg" target="main_page">t</a></td>
-            <td><a href="grafy-svg/Radotín-mesice.svg" target="main_page">m</a></td>
-            <td><a href="grafy-svg/Radotín-roky.svg" target="main_page">r</a></td>
+            <td><a href="#grafy-svg/Radotín-hodiny.svg">h</a></td>
+            <td><a href="#grafy-svg/Radotín-dny.svg">d</a></td>
+            <td><a href="#grafy-svg/Radotín-tydny.svg">t</a></td>
+            <td><a href="#grafy-svg/Radotín-mesice.svg">m</a></td>
+            <td><a href="#grafy-svg/Radotín-roky.svg">r</a></td>
          </tr>
          <tr>
             <td>Rohanské nábřeží:</td>
-            <td><a href="grafy-svg/Rohanské_nábřeží-hodiny.svg" target="main_page">h</a></td>
-            <td><a href="grafy-svg/Rohanské_nábřeží-dny.svg" target="main_page">d</a></td>
-            <td><a href="grafy-svg/Rohanské_nábřeží-tydny.svg" target="main_page">t</a></td>
-            <td><a href="grafy-svg/Rohanské_nábřeží-mesice.svg" target="main_page">m</a></td>
-            <td><a href="grafy-svg/Rohanské_nábřeží-roky.svg" target="main_page">r</a></td>
+            <td><a href="#grafy-svg/Rohanské_nábřeží-hodiny.svg">h</a></td>
+            <td><a href="#grafy-svg/Rohanské_nábřeží-dny.svg">d</a></td>
+            <td><a href="#grafy-svg/Rohanské_nábřeží-tydny.svg">t</a></td>
+            <td><a href="#grafy-svg/Rohanské_nábřeží-mesice.svg">m</a></td>
+            <td><a href="#grafy-svg/Rohanské_nábřeží-roky.svg">r</a></td>
          </tr>
          <tr>
             <td>Střešovice:</td>
-            <td><a href="grafy-svg/Střešovice-hodiny.svg" target="main_page">h</a></td>
-            <td><a href="grafy-svg/Střešovice-dny.svg" target="main_page">d</a></td>
-            <td><a href="grafy-svg/Střešovice-tydny.svg" target="main_page">t</a></td>
-            <td><a href="grafy-svg/Střešovice-mesice.svg" target="main_page">m</a></td>
-            <td><a href="grafy-svg/Střešovice-roky.svg" target="main_page">r</a></td>
+            <td><a href="#grafy-svg/Střešovice-hodiny.svg">h</a></td>
+            <td><a href="#grafy-svg/Střešovice-dny.svg">d</a></td>
+            <td><a href="#grafy-svg/Střešovice-tydny.svg">t</a></td>
+            <td><a href="#grafy-svg/Střešovice-mesice.svg">m</a></td>
+            <td><a href="#grafy-svg/Střešovice-roky.svg">r</a></td>
          </tr>
          <tr>
             <td>Šárecké údolí:</td>
-            <td><a href="grafy-svg/Šárecké_údolí-hodiny.svg" target="main_page">h</a></td>
-            <td><a href="grafy-svg/Šárecké_údolí-dny.svg" target="main_page">d</a></td>
-            <td><a href="grafy-svg/Šárecké_údolí-tydny.svg" target="main_page">t</a></td>
-            <td><a href="grafy-svg/Šárecké_údolí-mesice.svg" target="main_page">m</a></td>
-            <td><a href="grafy-svg/Šárecké_údolí-roky.svg" target="main_page">r</a></td>
+            <td><a href="#grafy-svg/Šárecké_údolí-hodiny.svg">h</a></td>
+            <td><a href="#grafy-svg/Šárecké_údolí-dny.svg">d</a></td>
+            <td><a href="#grafy-svg/Šárecké_údolí-tydny.svg">t</a></td>
+            <td><a href="#grafy-svg/Šárecké_údolí-mesice.svg">m</a></td>
+            <td><a href="#grafy-svg/Šárecké_údolí-roky.svg">r</a></td>
          </tr>
          <tr>
             <td>Šeberov:</td>
-            <td><a href="grafy-svg/Šeberov-hodiny.svg" target="main_page">h</a></td>
-            <td><a href="grafy-svg/Šeberov-dny.svg" target="main_page">d</a></td>
-            <td><a href="grafy-svg/Šeberov-tydny.svg" target="main_page">t</a></td>
-            <td><a href="grafy-svg/Šeberov-mesice.svg" target="main_page">m</a></td>
-            <td><a href="grafy-svg/Šeberov-roky.svg" target="main_page">r</a></td>
+            <td><a href="#grafy-svg/Šeberov-hodiny.svg">h</a></td>
+            <td><a href="#grafy-svg/Šeberov-dny.svg">d</a></td>
+            <td><a href="#grafy-svg/Šeberov-tydny.svg">t</a></td>
+            <td><a href="#grafy-svg/Šeberov-mesice.svg">m</a></td>
+            <td><a href="#grafy-svg/Šeberov-roky.svg">r</a></td>
          </tr>
          <tr>
             <td>Vítkov:</td>
-            <td><a href="grafy-svg/Vítkov-hodiny.svg" target="main_page">h</a></td>
-            <td><a href="grafy-svg/Vítkov-dny.svg" target="main_page">d</a></td>
-            <td><a href="grafy-svg/Vítkov-tydny.svg" target="main_page">t</a></td>
-            <td><a href="grafy-svg/Vítkov-mesice.svg" target="main_page">m</a></td>
-            <td><a href="grafy-svg/Vítkov-roky.svg" target="main_page">r</a></td>
+            <td><a href="#grafy-svg/Vítkov-hodiny.svg">h</a></td>
+            <td><a href="#grafy-svg/Vítkov-dny.svg">d</a></td>
+            <td><a href="#grafy-svg/Vítkov-tydny.svg">t</a></td>
+            <td><a href="#grafy-svg/Vítkov-mesice.svg">m</a></td>
+            <td><a href="#grafy-svg/Vítkov-roky.svg">r</a></td>
          </tr>
          <tr>
             <td>Vršovická:</td>
-            <td><a href="grafy-svg/Vršovická-hodiny.svg" target="main_page">h</a></td>
-            <td><a href="grafy-svg/Vršovická-dny.svg" target="main_page">d</a></td>
-            <td><a href="grafy-svg/Vršovická-tydny.svg" target="main_page">t</a></td>
-            <td><a href="grafy-svg/Vršovická-mesice.svg" target="main_page">m</a></td>
-            <td><a href="grafy-svg/Vršovická-roky.svg" target="main_page">r</a></td>
+            <td><a href="#grafy-svg/Vršovická-hodiny.svg">h</a></td>
+            <td><a href="#grafy-svg/Vršovická-dny.svg">d</a></td>
+            <td><a href="#grafy-svg/Vršovická-tydny.svg">t</a></td>
+            <td><a href="#grafy-svg/Vršovická-mesice.svg">m</a></td>
+            <td><a href="#grafy-svg/Vršovická-roky.svg">r</a></td>
          </tr>
          <tr>
             <td>Vysočany:</td>
-            <td><a href="grafy-svg/Vysočany-hodiny.svg" target="main_page">h</a></td>
-            <td><a href="grafy-svg/Vysočany-dny.svg" target="main_page">d</a></td>
-            <td><a href="grafy-svg/Vysočany-tydny.svg" target="main_page">t</a></td>
-            <td><a href="grafy-svg/Vysočany-mesice.svg" target="main_page">m</a></td>
-            <td><a href="grafy-svg/Vysočany-roky.svg" target="main_page">r</a></td>
+            <td><a href="#grafy-svg/Vysočany-hodiny.svg">h</a></td>
+            <td><a href="#grafy-svg/Vysočany-dny.svg">d</a></td>
+            <td><a href="#grafy-svg/Vysočany-tydny.svg">t</a></td>
+            <td><a href="#grafy-svg/Vysočany-mesice.svg">m</a></td>
+            <td><a href="#grafy-svg/Vysočany-roky.svg">r</a></td>
+         </tr>
+         <tr>
+            <td>Pelléova:</td>
+            <td><a href="#grafy-svg/Pelléova-hodiny.svg">h</a></td>
+            <td><a href="#grafy-svg/Pelléova-dny.svg">d</a></td>
+            <td><a href="#grafy-svg/Pelléova-tydny.svg">t</a></td>
+            <td><a href="#grafy-svg/Pelléova-mesice.svg">m</a></td>
+            <td><a href="#grafy-svg/Pelléova-roky.svg">r</a></td>
          </tr>
       </table>
 
