@@ -66,5 +66,25 @@ nazev["BC_PN-VYBR2"]="Podolské_nábřeží_-_vozovka"
 mista="${!typ[@]}"
 
 for i in $mista; do
-    wget "https://unicam.camea.cz/Discoverer/StatsReports/bike-counter/stats-customer-hour-content/df/${typ[$i]}%2000:00:00/dt/`date +%Y-%m-%d`%2000:00:00/sn/$i/format/csv" -O "data/${nazev[$i]}.csv"
+    year_from=`echo ${typ[$i]} | sed s/-.*//g`
+    year_to=`date +%Y`
+    for y in `seq $year_from $year_to`; do
+       if [ $y = $year_from ]; then
+          date_from=${typ[$i]}
+       else
+          date_from="$y-01-01"
+       fi
+
+       if [ $y = $year_to ]; then
+          date_to=`date +%Y-%m-%d`
+       else
+          date_to="$y-12-31"
+       fi
+
+       wget "https://unicam.camea.cz/Discoverer/StatsReports/bike-counter/stats-customer-hour-content/df/$date_from%2000:00:00/dt/$date_to%2000:00:00/sn/$i/format/csv" -O "data/${nazev[$i]}_$y.csv"
+    done
+    sed -i -e '$a\' data/${nazev[$i]}_*.csv
+    cat data/${nazev[$i]}_*.csv | grep "^[^Č].*" > data-combined/${nazev[$i]}.csv
+    echo ----------------------------
+
 done

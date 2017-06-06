@@ -3,7 +3,7 @@ export LANG="en_US.UTF-8"
 export LC_COLLATE=C
 export LC_ALL=C
 
-soubor=`echo "$1" | sed "s/\.csv//" | sed "s/data\///"`
+soubor=`echo "$1" | sed "s/\.csv//" | sed "s/data-combined\///"`
 nazev=`echo "$soubor" | sed "s/_/ /g"`
 plot_string="in 0 u 1:2 t 'směr 1'  with steps linestyle 1 linetype rgb 'red' lw 1,\
    '' in 0 u 1:3 t 'směr 2'  with steps linestyle 1 linetype rgb 'green' lw 1,\
@@ -59,30 +59,30 @@ set timefmt "%Y-%m-%d %H:%M"
 #set xrange ["2010-11-03 01:00":"2010-11-16 13:00"]
 
 set output "$output_folter/$soubor-hodiny.$output_suffix"
-plot "<gawk -v regexp='' -f prevod.awk \"data/$soubor.csv\"" \
+plot "<gawk -v regexp='' -f prevod.awk \"data-combined/$soubor.csv\"" \
 ${plot}
 
 set title "Počet cyklistů na měřeném profilu ${nazev} - součty po týdnu"
 
 set output "$output_folter/$soubor-tydny.$output_suffix"
-plot "<gawk -v regexp='Sun .* 00:00:00' -f prevod.awk \"data/$soubor.csv\"" \
+plot "<gawk -v regexp='Sun .* 00:00:00' -f prevod.awk \"data-combined/$soubor.csv\"" \
 ${plot}
 
 set title "Počet cyklistů na měřeném profilu ${nazev} - součty po dni"
 
 set output "$output_folter/$soubor-dny.$output_suffix"
-plot "<gawk -v regexp='00:00:00' -f prevod.awk \"data/$soubor.csv\"" \
+plot "<gawk -v regexp='00:00:00' -f prevod.awk \"data-combined/$soubor.csv\"" \
 ${plot}
 
 set title "Počet cyklistů na měřeném profilu ${nazev} - součty po měsíci"
 
 set output "$output_folter/$soubor-mesice.$output_suffix"
-plot "<gawk -v regexp=' 01 00:00:00' -f prevod.awk \"data/$soubor.csv\"" \
+plot "<gawk -v regexp=' 01 00:00:00' -f prevod.awk \"data-combined/$soubor.csv\"" \
 ${plot}
 
 set title "Počet cyklistů na měřeném profilu ${nazev} - součty po roce"
 
 set output "$output_folter/$soubor-roky.$output_suffix"
-plot "<gawk -v regexp='Jan 01 00:00:00' -f prevod.awk \"data/$soubor.csv\"" \
+plot "<gawk -v regexp='Jan 01 00:00:00' -f prevod.awk \"data-combined/$soubor.csv\"" \
 ${plot}
 EOF
