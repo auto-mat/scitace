@@ -83,12 +83,12 @@ for i in $mista; do
           date_to="$y-12-31"
        fi
 
-       if [ $y = $year_to ]; then
+       if [[ $1 = "--all" ]] || [[ $y = $year_to ]]; then
           wget "https://unicam.camea.cz/Discoverer/StatsReports/bike-counter/stats-customer-hour-content/df/$date_from%2000:00:00/dt/$date_to%2000:00:00/sn/$i/format/csv" -O "data/${nazev[$i]}_$y.csv"
        fi
     done
-    sed -i -e '$a\' data/${nazev[$i]}_*.csv
-    cat data/${nazev[$i]}_*.csv | grep "^[^Č].*" > data-combined/${nazev[$i]}.csv
+    sed -i -e '$a\' data/${nazev[$i]}_????.csv
+    cat data/${nazev[$i]}_????.csv | grep "^[^Č].*" > data-combined/${nazev[$i]}.csv
     echo ----------------------------
 
 done
