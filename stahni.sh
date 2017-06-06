@@ -30,6 +30,7 @@ typ["BC_VR-ST"]="2009-10-27"
 typ["BC_SU-KRKA"]="2010-01-01"
 typ["BC_PM-MHJA"]="2014-12-01"
 typ["BC_PN-VYBR2"]="2015-10-01"
+typ["BC_EU-KTOT"]="2016-11-01"
 
 declare -A nazev
 nazev["BC_PT-ZOVO"]="Povltavská"
@@ -62,6 +63,7 @@ nazev["BC_VR-ST"]="Vršovická"
 nazev["BC_SU-KRKA"]="Krč_(Sulická)"
 nazev["BC_PM-MHJA"]="Pelléova"
 nazev["BC_PN-VYBR2"]="Podolské_nábřeží_-_vozovka"
+nazev["BC_EU-KTOT"]="Elsnicovo_náměstí"
 
 mista="${!typ[@]}"
 
