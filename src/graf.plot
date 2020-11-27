@@ -59,30 +59,30 @@ set timefmt "%Y-%m-%d %H:%M"
 #set xrange ["2010-11-03 01:00":"2010-11-16 13:00"]
 
 set output "$output_folter/$soubor-hodiny.$output_suffix"
-plot "<gawk -v regexp='' -f prevod.awk \"data-combined/$soubor.csv\"" \
+plot "<gawk -v regexp='' -f /scitace/prevod.awk \"data-combined/$soubor.csv\"" \
 ${plot}
 
 set title "Počet cyklistů na měřeném profilu ${nazev} - součty po týdnu"
 
 set output "$output_folter/$soubor-tydny.$output_suffix"
-plot "<gawk -v regexp='Sun .* 00:00:00' -f prevod.awk \"data-combined/$soubor.csv\"" \
+plot "<gawk -v regexp='Sun .* 00:00:00' -f /scitace/prevod.awk \"data-combined/$soubor.csv\"" \
 ${plot}
 
 set title "Počet cyklistů na měřeném profilu ${nazev} - součty po dni"
 
 set output "$output_folter/$soubor-dny.$output_suffix"
-plot "<gawk -v regexp='00:00:00' -f prevod.awk \"data-combined/$soubor.csv\"" \
+plot "<gawk -v regexp='00:00:00' -f /scitace/prevod.awk \"data-combined/$soubor.csv\"" \
 ${plot}
 
 set title "Počet cyklistů na měřeném profilu ${nazev} - součty po měsíci"
 
 set output "$output_folter/$soubor-mesice.$output_suffix"
-plot "<gawk -v regexp=' 01 00:00:00' -f prevod.awk \"data-combined/$soubor.csv\"" \
+plot "<gawk -v regexp=' 01 00:00:00' -f /scitace/prevod.awk \"data-combined/$soubor.csv\"" \
 ${plot}
 
 set title "Počet cyklistů na měřeném profilu ${nazev} - součty po roce"
 
 set output "$output_folter/$soubor-roky.$output_suffix"
-plot "<gawk -v regexp='Jan 01 00:00:00' -f prevod.awk \"data-combined/$soubor.csv\"" \
+plot "<gawk -v regexp='Jan 01 00:00:00' -f /scitace/prevod.awk \"data-combined/$soubor.csv\"" \
 ${plot}
 EOF
